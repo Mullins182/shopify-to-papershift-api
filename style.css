@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+input[type="number"] {
+    appearance: textfield;
+}
+  
+  /* Für Webkit-Browser (Chrome, Safari, neuere Versionen von Edge) */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+body {
+    display: flex;
+    align-items: center;
+    /* justify-content: left; */
+    color: whitesmoke;
+    height: 100vh;
+    width: auto;
+    padding: 25px;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.94);
+}
+.form-elements {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.div-buttons {
+    margin: 0px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: 600px;
+    height: auto;
+    /* height: 100vh; */
+    border-radius: 25px;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+.div-input-fields {
+    margin: 0px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: 600px;
+    height: auto;
+    /* height: 100vh; */
+    border-radius: 25px;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+.input-field {
+    margin-bottom: 15px;
+    height: 50px;
+    width: 550px;
+    background-color: black;
+    color: gold;
+    font-size: 26px;
+    border-radius: 7px;
+}
+.btn-label {
+    margin-bottom: 12px;
+    margin-top: 12px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.55);
+    border-radius: 55%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: goldenrod;
+    font-size: 33px;
+    width: 500px;
+}
+.btn-getter {
+    text-rendering: optimizeLegibility;
+    margin-bottom: 5px;
+    width: 550px;
+    height: 70px;
+    border-radius: 25px;
+    font-size: 25px;
+    font-family: 'Arial Black';
+    color: black;
+    background-color: rgba(229, 169, 5, 0.888);
+    transition: background-color 0.37s ease-in-out, color 0.23s ease-in-out, border-radius 0.25s ease-in-out, font-size 0.33s ease-in;
+}
+.btn-getter:hover {
+    background-color: rgba(243, 151, 4, 0.6);
+    color: gold;
+    font-size: 25.65px;
+    border-left: 3px solid greenyellow;
+    border-right: 3px solid greenyellow;
+    border-radius: 2px;
+}
+.btn-setter {
+    text-rendering: optimizeLegibility;
+    margin-bottom: 5px;
+    width: 550px;
+    height: 70px;
+    border-radius: 25px;
+    font-size: 25px;
+    font-family: 'Arial Black';
+    color: black;
+    background-color: rgba(66, 219, 23, 0.88);
+    transition: background-color 0.37s ease-in-out, color 0.23s ease-in-out, border-radius 0.25s ease-in-out, font-size 0.33s ease-in;
+}
+.btn-setter:hover {
+    background-color: rgba(243, 151, 4, 0.6);
+    color: gold;
+    font-size: 25.65px;
+    border-left: 3px solid greenyellow;
+    border-right: 3px solid greenyellow;
+    border-radius: 2px;
+}
