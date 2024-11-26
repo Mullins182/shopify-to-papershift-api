@@ -44,9 +44,8 @@
 
         include_once "papershiftFunctions.php";
 
-        // echo 'DIES IST EIN TEST !';
         
-        //************** Vars **************
+        //************** Var-Init **************
 
             $dataShopify = ['orders_amount'];
 
@@ -59,7 +58,9 @@
             $data['shift']['range_end'] = isset($_POST['range_end']) ? $_POST['range_end'] : null;
             $data['filter']['title'] = isset($_POST['title']) ? $_POST['title'] : null;
             $data['user']['data_profiles']['desc'] = isset($_POST['description']) ? $_POST['description'] : null;
-
+        
+        
+        //************** PHP-Script Logic **************
             
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])){
             if ($_POST['action'] === 'getShiftsFromPapershift') {
@@ -85,7 +86,7 @@
                         }
                     }                                
 
-                exit; // Beendet die Ausführung nach der Ausgabe
+                exit;
             }
             if ($_POST['action'] === 'getTagsFromPapershift') {
                 try {
@@ -97,7 +98,7 @@
                 } catch (\Throwable $th) {
                     
                     $message = ["EIN ODER MEHRERE DER EINGABEFELDER ENTHALTEN UNGUELTIGE DATEN", "(DATUM MUSS IN DIESEM 
-                    FORMAT EINGETRAGEN WERDEN: [1998-12-23] ODER [23.12.1998]", "UND ACHTEN SIE AUF DIE EINGABE EINER GUELTIGEN [location_id] !"];
+                    FORMAT SEIN: '1998-12-23' ODER '23.12.1998'", "UND ACHTEN SIE AUF DIE EINGABE EINER GUELTIGEN 'location_id' !"];
 
                     debug_to_console($message);
                     // echo json_encode(['error' => $th->getMessage()]);        
@@ -125,7 +126,7 @@
                     }
                 }
 
-            exit; // Beendet die Ausführung nach der Ausgabe
+            exit;
 
 
             }
@@ -143,7 +144,7 @@
 
                 }
 
-                exit; // Beendet die Ausführung nach der Ausgabe
+                exit;
             }
             if ($_POST['action'] === 'getWorkingAreasFromPapershift') {
         
@@ -157,7 +158,7 @@
                     echo json_encode(['error' => $th->getMessage()]);
                 }
 
-                exit; // Beendet die Ausführung nach der Ausgabe                
+                exit;
             }
             if ($_POST['action'] === 'getLocationsFromPapershift') {
         
@@ -171,7 +172,7 @@
                     echo json_encode(['error' => $th->getMessage()]);
                 }
 
-                exit; // Beendet die Ausführung nach der Ausgabe                
+                exit;
             }
             if ($_POST['action'] === 'setUserInPapershift') {
                 setUserInPapershift();
@@ -191,7 +192,7 @@
                     echo json_encode(['error' => $th->getMessage()]);
                 }
 
-                exit; // Beendet die Ausführung nach der Ausgabe
+                exit;
             }
         }
 
