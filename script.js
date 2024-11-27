@@ -48,6 +48,12 @@ document.getElementById('set-btn-Shift').addEventListener('click', function() {
     console.log("BITTE WARTEN ...");
     callSetShift();
 });
+document.getElementById('set-btn-Absen').addEventListener('click', function() {
+    // alert('BUTTON CLICK !');
+    console.clear();
+    console.log("BITTE WARTEN ...");
+    callSetAbsence();
+});
 document.getElementById('set-btn-Tag').addEventListener('click', function() {
     // alert('BUTTON CLICK !');
     console.clear();
@@ -236,12 +242,48 @@ function callSetUser() {
     });
 }
 function callSetShift() {
+            // Auslesen der Werte aus den Input-Feldern
+            let api_token = "uDQNXUbJRlQuVDawBVS7bxZ0YLFH4ocXYc1yQpOp";
+            let location_id = document.getElementById('location_id').value;
+            let working_area_id = document.getElementById('working_area_id').value;
+            let starts_at = document.getElementById('starts_at').value;
+            let ends_at = document.getElementById('ends_at').value;
+            let number_of_employees = document.getElementById('number_of_employees').value;
+        
+            // Erstellen des URL-encodierten Strings für den Body
+            let bodyContent = new URLSearchParams({
+                'action': 'setShiftInPapershift',
+                'api_token': api_token,
+                'location_id': location_id,
+                'working_area_id': working_area_id,
+                'starts_at': starts_at,
+                'ends_at': ends_at,
+                'number_of_employees': number_of_employees
+            }).toString();
+        
+            fetch('index.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: bodyContent
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Hier können Sie mit der Antwort arbeiten
+                // Zum Beispiel: document.getElementById('result').innerHTML = data;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });    
+}
+function callSetAbsence() {
     fetch('index.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: 'action=setShiftInPapershift'
+        body: 'action=setUserabsenceInPapershift'
     })
     .then(response => response.text())
     .then(data => {
