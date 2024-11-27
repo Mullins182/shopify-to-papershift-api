@@ -104,40 +104,6 @@ function deleteUserPapershift($data){ //TODO brauch ich das?
 
 //-------------------------------BASE FUNCTIONS-------------------------------------
 
-// function getPapershiftData($url, $key = NULL){
-
-//   $pageArr = [];
-
-//   while(($url) != null){
-  
-//     $curl = curl_init($url);
-//     curl_setopt($curl, CURLOPT_URL, $url);
-//     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-//     curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Accept: application/json'));
-//     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-//     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-      
-//     $resp = curl_exec($curl);
-//     curl_close($curl);
-//     $res = JSON_decode($resp);
-
-//     // ************ DEBUGGING ************
-
-//     // var_dump($res); // Fehlerdiagnose !
-
-//     // Dateiausgabe des Inhalts von $res
-//     $outputFile = 'debug/papershift_output_' . date('Y-m-d_H-i-s') . '.txt';
-//     $formattedOutput = print_r($res, true);
-//     file_put_contents($outputFile, $formattedOutput);
-
-//     // ************ DEBUGGING END ! ************
-
-//     if(!isset($res->next_page) && empty($pageArr)) return isset($key) ? $res->$key : $res;
-//     $pageArr = array_merge($pageArr, $res->$key);
-//     $url = $res->next_page;
-//   }
-//   return $pageArr;
-// }
 
 function getPapershiftData($url, $key = NULL){
   $pageArr = [];
