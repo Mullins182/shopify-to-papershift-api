@@ -81,7 +81,7 @@
                             $message = ["EIN ODER MEHRERE DER EINGABEFELDER ENTHALTEN UNGUELTIGE DATEN", "(DATUM MUSS IN DIESEM 
                             FORMAT EINGETRAGEN WERDEN: [1998-12-23] ODER [23.12.1998]", "UND ACHTEN SIE AUF DIE EINGABE EINER GUELTIGEN [location_id] !"];
 
-                            debug_to_console($message);
+                            echo $th;
                             // echo json_encode(['error' => $th->getMessage()]);        
                         }
                     }                                
@@ -100,7 +100,9 @@
                     $message = ["EIN ODER MEHRERE DER EINGABEFELDER ENTHALTEN UNGUELTIGE DATEN", "(DATUM MUSS IN DIESEM 
                     FORMAT SEIN: '1998-12-23' ODER '23.12.1998'", "UND ACHTEN SIE AUF DIE EINGABE EINER GUELTIGEN 'location_id' !"];
 
-                    debug_to_console($message);
+                    // echo $message;
+                    echo $th;
+
                     // echo json_encode(['error' => $th->getMessage()]);        
                 }
                 
@@ -118,10 +120,8 @@
                         echo json_encode($response, JSON_PRETTY_PRINT);
     
                     } catch (\Throwable $th) {
-                        
-                        $message = ["DIE USER-ID KONNTE NICHT GEFUNDEN WERDEN !"];
-
-                        debug_to_console($message);
+                        // echo $th;
+                        echo $th;
                         // echo json_encode(['error' => $th->getMessage()]);        
                     }
                 }
@@ -194,14 +194,6 @@
 
                 exit;
             }
-        }
-
-        function debug_to_console($data) {
-            $output = $data;
-            if (is_array($output))
-                $output = implode(" --- ", $output);
-        
-            echo "<script>console.clear(); console.log(" . json_encode($output) . ");</script>";
         }
 
         //************** PAPERSHIFT GETTER **************
